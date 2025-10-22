@@ -8,7 +8,7 @@ function App() {
   const [aula, setAula] = useState("Aula 101");
   const [reservas, setReservas] = useState([]);
 
-  // ✅ Cargar reservas guardadas (solo una vez)
+  //  Cargar reservas guardadas (solo una vez)
   useEffect(() => {
     try {
       const data = localStorage.getItem("reservas");
@@ -24,7 +24,7 @@ function App() {
     }
   }, []);
 
-  // ✅ Guardar reservas cada vez que cambian (de forma segura)
+  //  Guardar reservas cada vez que cambian (de forma segura)
   useEffect(() => {
     if (reservas.length > 0) {
       localStorage.setItem("reservas", JSON.stringify(reservas));
@@ -50,7 +50,7 @@ function App() {
     const nuevas = [...reservas, nuevaReserva];
     setReservas(nuevas);
 
-    // ✅ Guardar inmediatamente
+    //  Guardar inmediatamente
     localStorage.setItem("reservas", JSON.stringify(nuevas));
 
     setNombre("");
